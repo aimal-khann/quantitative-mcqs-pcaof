@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Revision Cheat Sheet, Tips &amp; Traps | PCAO-F Quant Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script defer src="questions.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="prism-backdrop" aria-hidden="true">
+    <div class="prism-stripes"></div>
+    <div class="prism-glow prism-glow--1"></div>
+    <div class="prism-glow prism-glow--2"></div>
+    <div class="prism-glow prism-glow--3"></div>
+  </div>
+
+  <header class="dock-header">
+    <div class="dock-bar">
+      <a class="dock-brand" href="index.html">
+        <div class="dock-gem">Q60</div>
+        <span>PCAO-F Studio</span>
+      </a>
+
+      <nav class="dock-nav" id="dock-nav" aria-label="Main navigation">
+        <a class="dock-link" href="index.html">Home</a>
+        <a class="dock-link active" href="tips.html">Tips &amp; Tricks</a>
+        <a class="dock-link" href="quiz.html">60-MCQ Quiz</a>
+      </nav>
+
+      <div class="dock-actions">
+        <button type="button" class="k-btn k-btn-amber k-btn-sm" data-download-pdf>↓ PDF</button>
+        <button type="button" class="emoji-theme-switch" data-theme-toggle aria-label="Toggle dark or light theme">
+          <span class="emoji-pill emoji-pill--sun" aria-hidden="true">☀️</span>
+          <span class="emoji-pill emoji-pill--moon" aria-hidden="true">🌙</span>
+        </button>
+        <button type="button" class="dock-burger" id="dock-burger" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" style="padding-top: 38px; padding-bottom: 48px;">
+    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:18px; margin-bottom:28px;">
+      <div>
+        <span class="k-tag k-tag-indigo">Quick Revision Cheat Sheet &amp; Tips</span>
+        <h1 style="font-size: clamp(1.9rem, 3.8vw, 2.85rem); margin-top:10px;">
+          Simple Math Tricks &amp; <span class="prism-text">Common Trap Guide</span>
+        </h1>
+        <p style="color:var(--t2-ink-2); max-width:680px; margin-top:8px;">
+          No calculator is allowed in the exam, and the math is simple once you spot the pattern. Use this plain-English guide to calculate fast, avoid common wording traps, and double-check every answer before you click Confirm.
+        </p>
+      </div>
+      <a class="k-btn k-btn-primary" href="quiz.html">Start 60-MCQ Quiz →</a>
+    </div>
+
+    <!-- 1. Interactive Mental-Math Speed Simulator -->
+    <section style="margin-bottom:44px;">
+      <div class="sim-grid">
+        <div class="bento bento-pad" style="display:flex; flex-direction:column; gap:10px;">
+          <span class="k-tag k-tag-amber" style="align-self:flex-start;">Interactive Walkthrough</span>
+          <h2 style="font-size:1.25rem; margin-bottom:4px;">Pick a Fast Trick to See How It Works</h2>
+          <button type="button" class="sim-btn active" data-sim-key="anchor">
+            <span>01 · Easy % Trick (10%, 5%, 25%, 50%)</span>
+            <span>→</span>
+          </button>
+          <button type="button" class="sim-btn" data-sim-key="fraction">
+            <span>02 · Fraction &amp; "What Is Left?" Trick</span>
+            <span>→</span>
+          </button>
+          <button type="button" class="sim-btn" data-sim-key="sample">
+            <span>03 · Sample vs. Unchecked Shortcut</span>
+            <span>→</span>
+          </button>
+          <button type="button" class="sim-btn" data-sim-key="netunit">
+            <span>04 · Real Time Saved &amp; Minutes to Hours</span>
+            <span>→</span>
+          </button>
+          <button type="button" class="sim-btn" data-sim-key="pp">
+            <span>05 · Percentage Points vs. Real % Change</span>
+            <span>→</span>
+          </button>
+          <button type="button" class="sim-btn" data-sim-key="judgment">
+            <span>06 · Is It Even a Math Question? (×10 Test)</span>
+            <span>→</span>
+          </button>
+        </div>
+
+        <div class="bento sim-stage" id="t2-sim-stage">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Quick Revision Cheat Sheet -->
+    <section style="margin-bottom:44px;">
+      <div style="margin-bottom:18px;">
+        <span class="k-tag k-tag-indigo">Quick Revision Cheat Sheet</span>
+        <h2 style="font-size:1.6rem; margin-top:8px;">Formulas, Fast Shortcuts &amp; Unit Conversions</h2>
+      </div>
+
+      <div class="cheat-grid-2">
+        <!-- Card 1: Essential Formulas -->
+        <article class="bento bento-pad reveal">
+          <span class="k-tag k-tag-indigo" style="margin-bottom:12px;">1 · Essential Formulas</span>
+          <div class="cheat-list">
+            <div class="cheat-row"><strong>Percentage</strong><span>(Part ÷ Total) × 100</span></div>
+            <div class="cheat-row"><strong>Average</strong><span>Total ÷ Number of items</span></div>
+            <div class="cheat-row"><strong>Difference</strong><span>Larger value − Smaller value</span></div>
+            <div class="cheat-row"><strong>Remaining (Left Over)</strong><span>Original − Used / Removed</span></div>
+            <div class="cheat-row"><strong>Rate</strong><span>Quantity ÷ Time</span></div>
+            <div class="cheat-row"><strong>Fraction of a Number</strong><span>(Number ÷ Bottom) × Top</span></div>
+            <div class="cheat-row"><strong>Percentage Change</strong><span>(Change ÷ Original) × 100</span></div>
+          </div>
+        </article>
+
+        <!-- Card 2: Mental Maths Shortcuts -->
+        <article class="bento bento-pad reveal">
+          <span class="k-tag k-tag-amber" style="margin-bottom:12px;">2 · Fast Mental Math Shortcuts</span>
+          <div class="cheat-list">
+            <div class="cheat-row"><strong>10% (1/10)</strong><span>Divide by 10</span></div>
+            <div class="cheat-row"><strong>20% (1/5)</strong><span>Divide by 5</span></div>
+            <div class="cheat-row"><strong>25% (1/4)</strong><span>Divide by 4</span></div>
+            <div class="cheat-row"><strong>50% (1/2)</strong><span>Divide by 2</span></div>
+            <div class="cheat-row"><strong>5% (1/20)</strong><span>Find 10%, then cut in half</span></div>
+            <div class="cheat-row"><strong>75% (3/4)</strong><span>Divide by 4, then × 3</span></div>
+            <div class="cheat-row"><strong>What's Left Over?</strong><span>If 1/5 removed → 4/5 stays</span></div>
+          </div>
+          <p style="margin-top:12px; font-size:0.86rem; color:var(--t2-ink-2);">
+            <strong>Fraction Tip:</strong> Always <em>divide first, then multiply</em>! That keeps every number small and easy to do in your head.
+          </p>
+        </article>
+
+        <!-- Card 3: Important Differences -->
+        <article class="bento bento-pad reveal">
+          <span class="k-tag k-tag-rose" style="margin-bottom:12px;">3 · Easy-to-Mix-Up Pairs</span>
+          <div class="cheat-list">
+            <div class="cheat-row"><strong>% Change</strong><span>(Change ÷ Old Value) × 100</span></div>
+            <div class="cheat-row"><strong>Percentage Points</strong><span>Just subtract: New % − Old %</span></div>
+            <div class="cheat-row"><strong>Time Saved</strong><span>Old Time − New Time (Your time only)</span></div>
+            <div class="cheat-row"><strong>Expected Errors</strong><span>Error Rate × Target Group Size</span></div>
+            <div class="cheat-row"><strong>Months to Pay Back Setup</strong><span>Setup Hours ÷ Net Hours Saved/Mo</span></div>
+          </div>
+        </article>
+
+        <!-- Card 4: Unit Conversions -->
+        <article class="bento bento-pad reveal">
+          <span class="k-tag k-tag-emerald" style="margin-bottom:12px;">4 · Unit Conversions (Convert First!)</span>
+          <div class="cheat-list">
+            <div class="cheat-row"><strong>1 minute</strong><span>60 seconds</span></div>
+            <div class="cheat-row"><strong>1 hour</strong><span>60 minutes (Minutes ÷ 60 = Hours)</span></div>
+            <div class="cheat-row"><strong>1 day / 1 week</strong><span>24 hours / 7 days</span></div>
+            <div class="cheat-row"><strong>Words → Tokens</strong><span>(Words ÷ 3) × 4 (same as ÷ 0.75)</span></div>
+            <div class="cheat-row"><strong>Token Pricing</strong><span>Change to Millions first (÷ 1,000,000)</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. Five-Step Solving Method -->
+    <section style="margin-bottom:44px;">
+      <div style="margin-bottom:18px;">
+        <span class="k-tag k-tag-emerald">5-Step Solving Method</span>
+        <h2 style="font-size:1.6rem; margin-top:8px;">A Simple Routine for Every Question</h2>
+      </div>
+
+      <div class="step5-grid" style="margin-bottom:18px;">
+        <article class="bento elim-step-card reveal">
+          <div class="elim-num">01</div>
+          <h3 style="margin-bottom:6px; font-size:1.02rem;">Read Carefully</h3>
+          <p style="font-size:0.86rem; color:var(--t2-ink-2);">Read the last question line carefully: does it ask for <em>what is left</em>, <em>unchecked items</em>, <em>percentage points</em>, or <em>a decision</em>?</p>
+        </article>
+        <article class="bento elim-step-card reveal">
+          <div class="elim-num">02</div>
+          <h3 style="margin-bottom:6px; font-size:1.02rem;">Pick Right Numbers</h3>
+          <p style="font-size:0.86rem; color:var(--t2-ink-2);">Underline only the numbers you need. Check if setup hours, unpaid orders, or a non-math rule also apply.</p>
+        </article>
+        <article class="bento elim-step-card reveal">
+          <div class="elim-num">03</div>
+          <h3 style="margin-bottom:6px; font-size:1.02rem;">Convert Units</h3>
+          <p style="font-size:0.86rem; color:var(--t2-ink-2);">Make units match before calculating: minutes into hours, words into tokens, or vendors at the same item count.</p>
+        </article>
+        <article class="bento elim-step-card reveal">
+          <div class="elim-num">04</div>
+          <h3 style="margin-bottom:6px; font-size:1.02rem;">Solve Step by Step</h3>
+          <p style="font-size:0.86rem; color:var(--t2-ink-2);">Simplify fractions first, use 10%/25%/50% shortcuts, and finish the final subtraction or comparison.</p>
+        </article>
+        <article class="bento elim-step-card reveal">
+          <div class="elim-num">05</div>
+          <h3 style="margin-bottom:6px; font-size:1.02rem;">Double-Check</h3>
+          <p style="font-size:0.86rem; color:var(--t2-ink-2);">Does your answer make sense? Did you divide by the right starting total? Does the "because" reason match?</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. Category-by-Category Cheat Sheet -->
+    <section style="margin-bottom:44px;">
+      <div style="margin-bottom:18px;">
+        <span class="k-tag k-tag-amber">Topic-by-Topic Cheat Sheet</span>
+        <h2 style="font-size:1.6rem; margin-top:8px;">What to Expect in Each of the 5 Quiz Sections</h2>
+      </div>
+
+      <div class="cat-sheet-grid">
+        <!-- Category 1 -->
+        <article class="bento cat-sheet-card reveal">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="k-tag k-tag-indigo">% Topic 1 • Q1–Q12</span>
+            <a class="k-btn k-btn-outline k-btn-sm" href="quiz.html?category=Percentages%20%26%20Rate%20Analysis">Practice →</a>
+          </div>
+          <h3 style="font-size:1.12rem;">Percentages &amp; Rate Analysis</h3>
+          <p class="mono" style="font-size:0.78rem; color:var(--t2-primary);">% = (Part ÷ Total) × 100 · % Change = (New − Old) ÷ Old</p>
+          <div class="mini-box-grid">
+            <div class="mini-box mini-box--tips">
+              <strong>Quick Tips</strong>
+              <ul>
+                <li>10% = ÷10, 5% = half of 10%</li>
+                <li>25% = ÷4, 50% = ÷2</li>
+                <li>Two % changes in a row? Try starting with 100!</li>
+              </ul>
+            </div>
+            <div class="mini-box mini-box--traps">
+              <strong>Common Traps</strong>
+              <ul>
+                <li>Dividing by the new number instead of the old one</li>
+                <li>Mixing up % points with real % change</li>
+                <li>Adding +50% and −40% straight together</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Category 2 -->
+        <article class="bento cat-sheet-card reveal">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="k-tag k-tag-indigo">◎ Topic 2 • Q13–Q24</span>
+            <a class="k-btn k-btn-outline k-btn-sm" href="quiz.html?category=Sampling%20%26%20Error%20Analysis">Practice →</a>
+          </div>
+          <h3 style="font-size:1.12rem;">Sampling &amp; Error Analysis</h3>
+          <p class="mono" style="font-size:0.78rem; color:var(--t2-primary);">Error Rate = Errors ÷ Checked · Expected = Rate × Target Group</p>
+          <div class="mini-box-grid">
+            <div class="mini-box mini-box--tips">
+              <strong>Quick Tips</strong>
+              <ul>
+                <li>See how many times bigger the unread set is (e.g. 900 ÷ 300 = 3×)</li>
+                <li>Multiply by the rate, not just the raw error count</li>
+                <li>Check weak groups (like handwritten forms) separately</li>
+              </ul>
+            </div>
+            <div class="mini-box mini-box--traps">
+              <strong>Common Traps</strong>
+              <ul>
+                <li>Counting already-fixed sample items in the "remaining errors"</li>
+                <li>Assuming 0 errors in 50 items proves 0% errors overall</li>
+                <li>Averaging two group rates when one group is huge</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Category 3 -->
+        <article class="bento cat-sheet-card reveal">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="k-tag k-tag-indigo">÷ Topic 3 • Q25–Q36</span>
+            <a class="k-btn k-btn-outline k-btn-sm" href="quiz.html?category=Fractions%20%26%20Multi-step%20Calculations">Practice →</a>
+          </div>
+          <h3 style="font-size:1.12rem;">Fractions &amp; Multi-Step</h3>
+          <p class="mono" style="font-size:0.78rem; color:var(--t2-primary);">1/2 = 50% · 1/4 = 25% · 1/5 = 20% · 1/8 = 12.5%</p>
+          <div class="mini-box-grid">
+            <div class="mini-box mini-box--tips">
+              <strong>Quick Tips</strong>
+              <ul>
+                <li>Divide first, then multiply</li>
+                <li>Find what is left right away (1/5 removed → 4/5 stays)</li>
+                <li>Add fractions using the same bottom number</li>
+              </ul>
+            </div>
+            <div class="mini-box mini-box--traps">
+              <strong>Common Traps</strong>
+              <ul>
+                <li>Taking the 2nd fraction from the original total instead of what was left</li>
+                <li>Stopping after step 1 (reporting what was removed instead of what stays)</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Category 4 -->
+        <article class="bento cat-sheet-card reveal">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="k-tag k-tag-indigo">⏱ Topic 4 • Q37–Q48</span>
+            <a class="k-btn k-btn-outline k-btn-sm" href="quiz.html?category=Time%2C%20Cost%20%26%20Efficiency">Practice →</a>
+          </div>
+          <h3 style="font-size:1.12rem;">Time, Cost &amp; Efficiency</h3>
+          <p class="mono" style="font-size:0.78rem; color:var(--t2-primary);">Saving = Old Time − Your AI Time · Hours = Minutes ÷ 60</p>
+          <div class="mini-box-grid">
+            <div class="mini-box mini-box--tips">
+              <strong>Quick Tips</strong>
+              <ul>
+                <li>Find saving per item first, then multiply</li>
+                <li>Subtract one-time setup hours when asked for net saving</li>
+                <li>Change words to tokens using (Words ÷ 3) × 4</li>
+              </ul>
+            </div>
+            <div class="mini-box mini-box--traps">
+              <strong>Common Traps</strong>
+              <ul>
+                <li>Counting AI working time as your own work time</li>
+                <li>Forgetting human checking or fixing costs</li>
+                <li>Leaving your answer in minutes when it asks for hours</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Category 5 -->
+        <article class="bento cat-sheet-card cat-sheet-card--wide reveal">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="k-tag k-tag-indigo">⚖ Topic 5 • Q49–Q60</span>
+            <a class="k-btn k-btn-outline k-btn-sm" href="quiz.html?category=Comparative%20Decision%20Scenarios">Practice →</a>
+          </div>
+          <h3 style="font-size:1.12rem;">Budget &amp; Comparative Decisions</h3>
+          <p class="mono" style="font-size:0.78rem; color:var(--t2-primary);">Real Total Cost = Fees + Error Fixes · Budget Used = Paid + Unpaid Invoices + Open Orders</p>
+          <div class="mini-box-grid">
+            <div class="mini-box mini-box--tips">
+              <strong>Quick Tips</strong>
+              <ul>
+                <li>Compare two vendors at the exact same volume (like per 1,000)</li>
+                <li>Include error-fixing cost, not just the sticker price</li>
+                <li>Run the ×10 check: if bigger numbers don't change the answer, a rule decides!</li>
+              </ul>
+            </div>
+            <div class="mini-box mini-box--traps">
+              <strong>Common Traps</strong>
+              <ul>
+                <li>Comparing one vendor on easy tasks with another on hard mixed tasks</li>
+                <li>Picking the cheaper fee while ignoring costly mistakes</li>
+                <li>Approving a plan that fits the budget when a freeze or privacy rule blocks it</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. Interactive Exam Traps Matrix -->
+    <section style="margin-bottom:44px;">
+      <div style="margin-bottom:18px;">
+        <span class="k-tag k-tag-rose">Interactive Trap Guide</span>
+        <h2 style="font-size:1.6rem; margin-top:8px;">9 Common Mistakes to Watch Out For (Click Any Card to See the Fix)</h2>
+      </div>
+
+      <div class="trap-bento-grid">
+        <article class="bento bento-lift trap-toggle-card reveal" data-trap-card>
+          <span class="k-tag k-tag-rose">Trap 01 • Wrong Total</span>
+          <h3>Dividing by the Wrong Number</h3>
+          <p style="font-size:0.88rem; color:var(--t2-ink-2);">"Of the claims NOT accepted, what % were rejected?" compares against 160, not all 400.</p>
+          <span class="mono trap-click-hint" style="font-size:0.76rem; color:var(--t2-primary); font-weight:700;">Click to see the Safe Fix →</span>
+          <div class="trap-reveal-pane" style="display:none;"><strong>Safe Fix:</strong> Check what comes right after "of" or "from" — divide by that group's total, or by the starting number for % change.</div>
+        </article>
+
+        <article class="bento bento-lift trap-toggle-card reveal" data-trap-card>
+          <span class="k-tag k-tag-rose">Trap 02 • Points vs. %</span>
+          <h3>Mixing Up Percentage Points and %</h3>
+          <p style="font-size:0.88rem; color:var(--t2-ink-2);">Accuracy rising from 80% to 92% is +12 percentage points, NOT a 12% increase.</p>
+          <span class="mono trap-click-hint" style="font-size:0.76rem; color:var(--t2-primary); font-weight:700;">Click to see the Safe Fix →</span>
+          <div class="trap-reveal-pane" style="display:none;"><strong>Safe Fix:</strong> Points = simple subtraction (92 − 80 = <strong>12 pp</strong>). Real % increase = 12 ÷ 80 = <strong>15%</strong>.</div>
+        </article>
+
+        <article class="bento bento-lift trap-toggle-card reveal" data-trap-card>
+          <span class="k-tag k-tag-rose">Trap 03 • Back-to-Back %</span>
+          <h3>Adding +50% and −40% Directly</h3>
+          <p style="font-size:0.88rem; color:var(--t2-ink-2);">Going up 50% and then dropping 40% does NOT leave you 10% higher!</p>
+          <span class="mono trap-click-hint" style="font-size:0.76rem; color:var(--t2-primary); font-weight:700;">Click to see the Safe Fix →</span>
+          <div class="trap-reveal-pane" style="display:none;"><strong>Safe Fix:</strong> Start with 100: +50% makes 150. Then −40% of 150 removes 60, leaving <strong>90</strong> (10% lower!).</div>
+        </article>
+
+        <article class="bento bento-lift trap-toggle-card reveal" data-trap-card>
+          <span class="k-tag k-tag-rose">Trap 04 • Checked vs. Unchecked</span>
+          <h3>Counting Already-Fixed Errors Again</h3>
+          <p style="font-size:0.88rem; color:var(--t2-ink-2);">If 24 errors in 600 checked lines are already fixed, only the 1,400 unchecked lines still have errors.</p>
+          <span class="mono trap-click-hint" style="font-size:0.76rem; color:var(--t2-primary); font-weight:700;">Click to see the Safe Fix →</span>
+          <div class="trap-reveal-pane" style="display:none;"><strong>Safe Fix:</strong> Read carefully: does it ask about the <em>whole batch</em> or only the <em>unchecked/unread</em> part?</div>
+        </article>
+
+        <article class="bento bento-lift trap-toggle-card reveal" data-trap-card>
+          <span class="k-tag k-tag-rose">Trap 05 • Stopping Early</span>
+          <h3>Picking Step 1 Instead of What Stays</h3>
+          <p style="font-size:0.88rem; color:var(--t2-ink-2);">When asked "how many files stay?", don't stop after finding how many were removed!</p>
+          <span class="mono trap-click-hint" style="font-size:0.76rem; color:var(--t2-primary); font-weight:700;">Click to see the Safe Fix →</span>
+          <div class="trap-reveal-pane" style="display:none;"><strong>Safe Fix:</strong> Always finish the last subtraction — or use what remains (3/4 of 40 = 30, then 4/5 of 30 = <strong>24</strong>).</div>
+        </article>
+
+        <article class="bento bento-lift trap-toggle-card reveal" data-trap-card>
+          <span class="k-tag k-tag-rose">Trap 06 • Hidden Time &amp; Cost</span>
+          <h3>Forgetting Setup Time or Human Checking</h3>
+          <p style="font-size:0.88rem; color:var(--t2-ink-2);">Saving 120 hours over a year minus a 6-hour setup is 114 net hours saved, not 120.</p>
+          <span class="mono trap-click-hint" style="font-size:0.76rem; color:var(--t2-primary); font-weight:700;">Click to see the Safe Fix →</span>
+          <div class="trap-reveal-pane" style="display:none;"><strong>Safe Fix:</strong> Subtract one-time setup hours from savings, and add human fix labor ($/hr × fix hours) to AI fees.</div>
+        </article>
+
+        <article class="bento bento-lift trap-toggle-card reveal" data-trap-card>
+          <span class="k-tag k-tag-rose">Trap 07 • Wrong Units</span>
+          <h3>Mixing Words with Tokens or Minutes with Hours</h3>
+          <p style="font-size:0.88rem; color:var(--t2-ink-2);">You cannot subtract 600,000 words straight from a 1,000,000-token limit.</p>
+          <span class="mono trap-click-hint" style="font-size:0.76rem; color:var(--t2-primary); font-weight:700;">Click to see the Safe Fix →</span>
+          <div class="trap-reveal-pane" style="display:none;"><strong>Safe Fix:</strong> Convert words to tokens first: (600,000 ÷ 3) × 4 = <strong>800,000 tokens</strong>. Always match units first!</div>
+        </article>
+
+        <article class="bento bento-lift trap-toggle-card reveal" data-trap-card>
+          <span class="k-tag k-tag-rose">Trap 08 • Unfair Compare</span>
+          <h3>Comparing Easy Work with Hard Work</h3>
+          <p style="font-size:0.88rem; color:var(--t2-ink-2);">5% errors on easy invoices vs. 6% errors on mixed hard invoices cannot tell you which vendor is better.</p>
+          <span class="mono trap-click-hint" style="font-size:0.76rem; color:var(--t2-primary); font-weight:700;">Click to see the Safe Fix →</span>
+          <div class="trap-reveal-pane" style="display:none;"><strong>Safe Fix:</strong> Rates adjust for batch size, NOT task difficulty. Only rank vendors tested on the same difficulty!</div>
+        </article>
+
+        <article class="bento bento-lift trap-toggle-card reveal" data-trap-card>
+          <span class="k-tag k-tag-rose">Trap 09 • Non-Math Rule</span>
+          <h3>Doing Math When a Rule Decides</h3>
+          <p style="font-size:0.88rem; color:var(--t2-ink-2);">Being under a $300k budget still doesn't allow hiring if management froze hiring last week.</p>
+          <span class="mono trap-click-hint" style="font-size:0.76rem; color:var(--t2-primary); font-weight:700;">Click to see the Safe Fix →</span>
+          <div class="trap-reveal-pane" style="display:none;"><strong>Safe Fix:</strong> Use the ×10 test: if changing numbers 10× doesn't change the decision, follow the rule, risk, or privacy tier!</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 6. Quick Practice Warm-Ups -->
+    <section>
+      <div style="margin-bottom:18px;">
+        <span class="k-tag k-tag-indigo">Quick Warm-Up</span>
+        <h2 style="font-size:1.6rem; margin-top:8px;">Try 3 Quick Questions Before Starting the Full 60</h2>
+      </div>
+
+      <div style="display:grid; gap:16px;">
+        <article class="bento bento-pad" data-k-drill data-right="C" data-explain="25% checked = 1 quarter, so 75% (3 quarters) is unchecked. 14 × 3 = 42 expected unchecked errors!">
+          <span class="k-tag k-tag-emerald">Warm-Up 1 • Sampling</span>
+          <h3 style="margin:10px 0 14px;">An auditor checks 25% of 800 records and finds 14 errors. How many errors are expected in the UNCHECKED records?</h3>
+          <div class="options-grid-2x2" style="margin-bottom:10px;">
+            <button type="button" class="t2-opt" data-opt="A"><span class="t2-opt-badge">A</span><span>14 errors</span></button>
+            <button type="button" class="t2-opt" data-opt="B"><span class="t2-opt-badge">B</span><span>56 errors</span></button>
+            <button type="button" class="t2-opt" data-opt="C"><span class="t2-opt-badge">C</span><span>42 errors</span></button>
+            <button type="button" class="t2-opt" data-opt="D"><span class="t2-opt-badge">D</span><span>28 errors</span></button>
+          </div>
+          <div class="k-drill-fb" style="display:none; padding:12px 14px; border-radius:12px; background:var(--t2-surface-alt); font-size:0.9rem;"></div>
+        </article>
+
+        <article class="bento bento-pad" data-k-drill data-right="B" data-explain="Start at 100 -> +50% makes 150 -> minus 40% of 150 (-60) = 90, which is 10% lower than 100!">
+          <span class="k-tag k-tag-amber">Warm-Up 2 • Back-to-Back %</span>
+          <h3 style="margin:10px 0 14px;">Monthly AI flags rise 50% in Month 2, then drop 40% in Month 3. Compared with Month 1, where does Month 3 end?</h3>
+          <div class="options-grid-2x2" style="margin-bottom:10px;">
+            <button type="button" class="t2-opt" data-opt="A"><span class="t2-opt-badge">A</span><span>10% higher</span></button>
+            <button type="button" class="t2-opt" data-opt="B"><span class="t2-opt-badge">B</span><span>10% lower</span></button>
+            <button type="button" class="t2-opt" data-opt="C"><span class="t2-opt-badge">C</span><span>No change (0%)</span></button>
+            <button type="button" class="t2-opt" data-opt="D"><span class="t2-opt-badge">D</span><span>20% lower</span></button>
+          </div>
+          <div class="k-drill-fb" style="display:none; padding:12px 14px; border-radius:12px; background:var(--t2-surface-alt); font-size:0.9rem;"></div>
+        </article>
+
+        <article class="bento bento-pad" data-k-drill data-right="A" data-explain="3 words = 4 tokens -> (600,000 ÷ 3) × 4 = 800,000 tokens. Space left = 1,000,000 − 800,000 − 150,000 = 50,000 tokens!">
+          <span class="k-tag k-tag-indigo">Warm-Up 3 • Unit Conversion</span>
+          <h3 style="margin:10px 0 14px;">A 1,000,000-token limit already uses 150,000 tokens. If 3 words equal 4 tokens, how many tokens remain after adding 600,000 words?</h3>
+          <div class="options-grid-2x2" style="margin-bottom:10px;">
+            <button type="button" class="t2-opt" data-opt="A"><span class="t2-opt-badge">A</span><span>50,000 tokens</span></button>
+            <button type="button" class="t2-opt" data-opt="B"><span class="t2-opt-badge">B</span><span>200,000 tokens</span></button>
+            <button type="button" class="t2-opt" data-opt="C"><span class="t2-opt-badge">C</span><span>250,000 tokens</span></button>
+            <button type="button" class="t2-opt" data-opt="D"><span class="t2-opt-badge">D</span><span>400,000 tokens</span></button>
+          </div>
+          <div class="k-drill-fb" style="display:none; padding:12px 14px; border-radius:12px; background:var(--t2-surface-alt); font-size:0.9rem;"></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="t2-footer">
+    <div class="wrap" style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px;">
+      <span><strong>PCAO-F Quant Studio</strong> • Quick Revision Cheat Sheet &amp; Strategy Guide</span>
+      <a class="k-btn k-btn-primary k-btn-sm" href="quiz.html">Enter 60-MCQ Quiz →</a>
+    </div>
+  </footer>
+</body>
+</html>

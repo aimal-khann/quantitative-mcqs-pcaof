@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PCAO-F Quant Studio | 60-Question Swiss Bento Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script defer src="questions.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="prism-backdrop" aria-hidden="true">
+    <div class="prism-stripes"></div>
+    <div class="prism-glow prism-glow--1"></div>
+    <div class="prism-glow prism-glow--2"></div>
+    <div class="prism-glow prism-glow--3"></div>
+  </div>
+
+  <!-- Floating Capsule Dock Header -->
+  <header class="dock-header">
+    <div class="dock-bar">
+      <a class="dock-brand" href="index.html">
+        <div class="dock-gem">Q60</div>
+        <span>PCAO-F Studio</span>
+      </a>
+
+      <nav class="dock-nav" id="dock-nav" aria-label="Main navigation">
+        <a class="dock-link active" href="index.html">Home</a>
+        <a class="dock-link" href="tips.html">Tips &amp; Tricks</a>
+        <a class="dock-link" href="quiz.html">60-MCQ Quiz</a>
+      </nav>
+
+      <div class="dock-actions">
+        <button type="button" class="k-btn k-btn-amber k-btn-sm" data-download-pdf>↓ PDF</button>
+        <button type="button" class="emoji-theme-switch" data-theme-toggle aria-label="Toggle dark or light theme">
+          <span class="emoji-pill emoji-pill--sun" aria-hidden="true">☀️</span>
+          <span class="emoji-pill emoji-pill--moon" aria-hidden="true">🌙</span>
+        </button>
+        <button type="button" class="dock-burger" id="dock-burger" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Hero -->
+    <section class="t2-hero">
+      <div class="t2-hero-badge">
+        <span>●</span>
+        <span>NO CALCULATOR EXAM • ALL 60 SCENARIO MCQS LIVE • STEP-BY-STEP MATH</span>
+      </div>
+      <h1 class="t2-hero-title">
+        Solve <span class="prism-text">Quantitative AI Scenarios</span> Faster Than Traps Can Catch You
+      </h1>
+      <p class="t2-hero-sub">
+        A high-clarity readiness studio built for the complete 60-question PCAO-F quantitative bank. Master quick cheat-sheet formulas, inspect why every option succeeds or fails after confirmation, and resume seamlessly from local browser storage.
+      </p>
+
+      <div class="t2-hero-ctas">
+        <a class="k-btn k-btn-primary" id="t2-home-start-btn" href="quiz.html">Start 60-MCQ Quiz →</a>
+        <a class="k-btn k-btn-outline" href="tips.html">⚡ Cheat Sheet, Tips &amp; Traps</a>
+        <button type="button" class="k-btn k-btn-amber" data-download-pdf>↓ Download 60-MCQ PDF</button>
+      </div>
+
+      <!-- Horizontal Live Metrics Ribbon with SVG Ring -->
+      <div class="bento metrics-ribbon">
+        <div class="ring-wrap">
+          <svg class="ring-svg" viewBox="0 0 58 58" aria-hidden="true">
+            <circle class="ring-bg" cx="29" cy="29" r="23"></circle>
+            <circle class="ring-fg" id="t2-ring-fg" cx="29" cy="29" r="23" stroke-dasharray="144.5" stroke-dashoffset="144.5"></circle>
+          </svg>
+          <div>
+            <div class="mono" id="t2-ring-pct" style="font-size:1.3rem; font-weight:700; color:var(--t2-primary);">0%</div>
+            <div class="metric-name">Active Completion</div>
+          </div>
+        </div>
+
+        <div class="metric-cell">
+          <div class="metric-num" id="t2-stat-slots">60</div>
+          <div class="metric-name">Total Exam MCQs</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-num" id="t2-stat-live" style="color:var(--t2-secondary);">60</div>
+          <div class="metric-name">Scenario MCQs Live</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-num" id="t2-stat-done" style="color:var(--t2-primary);">0/60</div>
+          <div class="metric-name">Confirmed</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-num" id="t2-stat-acc" style="color:var(--t2-amber);">0%</div>
+          <div class="metric-name">Accuracy</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Asymmetric 12-Col Swiss Bento Section -->
+    <section class="swiss-bento-grid">
+      <!-- Live Teaser Card -->
+      <article class="bento bento-pad bento-span-7 reveal">
+        <span class="k-tag k-tag-amber">Try Mental Math Right Here</span>
+        <h2 style="margin:12px 0 8px; font-size:1.35rem;">Instant No-Calculator Check: 7.5% of 1,600</h2>
+        <p style="font-size:0.94rem; color:var(--t2-ink-2); margin-bottom:16px;">
+          An AI workflow flags 7.5% of 1,600 supplier invoices for audit. Without touching a calculator, how many invoices are flagged?
+        </p>
+        <div class="options-grid-2x2" style="margin-bottom:12px;">
+          <button type="button" class="t2-opt" data-teaser-opt="A"><span class="t2-opt-badge">A</span><span>96 invoices</span></button>
+          <button type="button" class="t2-opt" data-teaser-opt="B"><span class="t2-opt-badge">B</span><span>120 invoices</span></button>
+          <button type="button" class="t2-opt" data-teaser-opt="C"><span class="t2-opt-badge">C</span><span>140 invoices</span></button>
+          <button type="button" class="t2-opt" data-teaser-opt="D"><span class="t2-opt-badge">D</span><span>80 invoices</span></button>
+        </div>
+        <div id="t2-teaser-out" style="display:none; padding:12px 14px; border-radius:12px; background:var(--t2-surface-alt); font-size:0.9rem;"></div>
+      </article>
+
+      <!-- Exam Snapshot Card -->
+      <article class="bento bento-pad bento-span-5 reveal" style="display:flex; flex-direction:column; justify-content:space-between; gap:14px;">
+        <div>
+          <span class="k-tag k-tag-indigo">Portal Architecture</span>
+          <h2 style="margin:12px 0 10px; font-size:1.35rem;">Built for Zero-Guess Mastery</h2>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; font-size:0.92rem; color:var(--t2-ink-2);">
+            <li><strong>🎯 Top Topic &amp; Concept Header:</strong> Quantitative area, difficulty, and key concepts displayed above every question.</li>
+            <li><strong>🔒 Confirm-to-Reveal:</strong> Choose A–D, hit Confirm, and unlock step-by-step working plus all 4 option traps.</li>
+            <li><strong>💾 Auto Local Cache:</strong> Answers, bookmarks, and timer persist cleanly across browser reloads.</li>
+            <li><strong>📄 Instant PDF Sheet:</strong> Export all 60 questions, solutions, shortcuts, and trap breakdowns.</li>
+          </ul>
+        </div>
+        <a class="k-btn k-btn-primary" href="quiz.html">Open 60-Question Workbench →</a>
+      </article>
+
+      <!-- 5 Domain Bento Cards Populated by JS -->
+      <div class="bento-span-12" style="margin-top:8px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+          <div>
+            <span class="k-tag k-tag-emerald">5 Quantitative Reasoning Areas (12 MCQs Each)</span>
+            <h2 style="margin-top:8px; font-size:1.65rem;">Choose a Reasoning Category</h2>
+          </div>
+          <a class="k-btn k-btn-outline k-btn-sm" href="tips.html">Open Cheat Sheet &amp; Traps →</a>
+        </div>
+        <div class="swiss-bento-grid" id="t2-bento-domains" style="margin-bottom:0;"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="t2-footer">
+    <div class="wrap" style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px;">
+      <span><strong>PCAO-F Quant Studio</strong> • Complete 60-Question Quantitative Bank</span>
+      <span>120 Minutes • 60 Questions • 720/1000 Pass Target • No Calculator</span>
+    </div>
+  </footer>
+</body>
+</html>
+

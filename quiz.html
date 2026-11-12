@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>60-MCQ Workbench | PCAO-F Quant Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script defer src="questions.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="prism-backdrop" aria-hidden="true">
+    <div class="prism-stripes"></div>
+    <div class="prism-glow prism-glow--1"></div>
+    <div class="prism-glow prism-glow--2"></div>
+    <div class="prism-glow prism-glow--3"></div>
+  </div>
+
+  <header class="dock-header">
+    <div class="dock-bar">
+      <a class="dock-brand" href="index.html">
+        <div class="dock-gem">Q60</div>
+        <span>PCAO-F Studio</span>
+      </a>
+
+      <nav class="dock-nav" id="dock-nav" aria-label="Main navigation">
+        <a class="dock-link" href="index.html">Home</a>
+        <a class="dock-link" href="tips.html">Tips &amp; Tricks</a>
+        <a class="dock-link active" href="quiz.html">60-MCQ Quiz</a>
+      </nav>
+
+      <div class="dock-actions">
+        <button type="button" class="k-btn k-btn-amber k-btn-sm" data-download-pdf>↓ PDF</button>
+        <button type="button" class="emoji-theme-switch" data-theme-toggle aria-label="Toggle dark or light theme">
+          <span class="emoji-pill emoji-pill--sun" aria-hidden="true">☀️</span>
+          <span class="emoji-pill emoji-pill--moon" aria-hidden="true">🌙</span>
+        </button>
+        <button type="button" class="dock-burger" id="dock-burger" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap arena-wrap">
+    <!-- Top 60-Question Matrix Command Ribbon -->
+    <section class="bento matrix-command" aria-label="60-Question Navigator Matrix">
+      <div class="command-top-row">
+        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:12px;">
+          <span class="mono" style="font-weight:700; font-size:0.92rem;" id="t2-arena-answered">0 / 60 Confirmed</span>
+          <span class="mono" style="font-weight:700; font-size:0.92rem; color:var(--t2-secondary);" id="t2-arena-accuracy">0% Accuracy</span>
+          <span class="k-tag k-tag-emerald">● Local Cache Active</span>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:8px;">
+          <div class="timer-box" title="Optional 120-minute exam clock">
+            <span>⏱</span>
+            <span id="t2-timer-display">120:00</span>
+            <button type="button" class="timer-btn" id="t2-timer-toggle">Start</button>
+            <button type="button" class="timer-btn" id="t2-timer-reset">↺</button>
+          </div>
+          <button type="button" class="k-btn k-btn-amber k-btn-sm" data-download-pdf>↓ Export PDF</button>
+          <button type="button" class="k-btn k-btn-outline k-btn-sm" id="t2-reset-btn">Reset</button>
+        </div>
+      </div>
+
+      <!-- Category Chips + View Filters -->
+      <div class="command-top-row">
+        <div class="chip-scroll" id="t2-cat-chips"></div>
+        <div class="chip-scroll">
+          <button type="button" class="cat-chip active" data-status-filter="all">All 60</button>
+          <button type="button" class="cat-chip" data-status-filter="active">Unanswered</button>
+          <button type="button" class="cat-chip" data-status-filter="flagged">Flagged</button>
+          <button type="button" class="cat-chip" data-status-filter="wrong">Incorrect</button>
+        </div>
+      </div>
+
+      <!-- 1–60 Jump Matrix -->
+      <div class="matrix-rail" id="t2-matrix-rail"></div>
+    </section>
+
+    <!-- Split-Pane Mastery Workbench -->
+    <section class="workbench" id="t2-workbench"></section>
+
+    <div style="text-align:center; font-size:0.8rem; color:var(--t2-muted);">
+      Shortcuts: <span class="mono">A–D</span> / <span class="mono">1–4</span> select · <span class="mono">Enter</span> confirm · <span class="mono">← / →</span> switch question
+    </div>
+  </main>
+
+  <!-- Reset Confirmation Modal -->
+  <div class="t2-modal-bg" id="t2-reset-modal" role="dialog" aria-modal="true" aria-labelledby="t2-reset-title">
+    <div class="bento bento-pad" style="max-width:420px; width:100%;">
+      <h3 id="t2-reset-title" style="font-size:1.2rem; margin-bottom:8px;">Reset Locally Saved Progress?</h3>
+      <p style="font-size:0.9rem; color:var(--t2-ink-2); margin-bottom:20px;">
+        Clears all saved option picks, confirmed answers, flags, and timer state from browser storage.
+      </p>
+      <div style="display:flex; justify-content:flex-end; gap:10px;">
+        <button type="button" class="k-btn k-btn-outline k-btn-sm" id="t2-reset-cancel">Cancel</button>
+        <button type="button" class="k-btn k-btn-primary k-btn-sm" id="t2-reset-confirm" style="background:var(--t2-err);">
+          Reset Progress
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
